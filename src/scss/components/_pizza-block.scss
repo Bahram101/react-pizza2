@@ -9,12 +9,15 @@
 	// &:not(:nth-of-type(4n)) {
 	//   margin-right: 35px;
 	// }
-	@media(max-width: 750px){
-		&{
+	@media (max-width: 750px) {
+		& {
 			margin-bottom: 10px;
 			padding-bottom: 10px;
 			border-bottom: 1px dashed #ccc;
 		}
+	}
+	@media (min-width: 751px) {
+		margin-bottom: 40px;
 	}
 
 	&__image {
