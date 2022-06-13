@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 
 export default function Sort({ value, onChangeSort }) {
 	const list = [
-		{ name: 'популярность', sort: 'rating' },
-		{ name: 'цене', sort: 'price' },
-		{ name: 'алфавиту', sort: 'title' },
+		{ name: 'популярность (ASC)', sort: 'rating' },
+		{ name: 'популярность (DESC)', sort: '-rating' },
+		{ name: 'цене (ASC)', sort: 'price' },
+		{ name: 'цене (DESC)', sort: '-price' },
+		{ name: 'алфавиту (ASC)', sort: 'title' },
+		{ name: 'алфавиту (DESC)', sort: '-title' },
 	];
 
 	const [open, setOpen] = useState(false);
@@ -38,7 +41,7 @@ export default function Sort({ value, onChangeSort }) {
 						{list.map((item) => (
 							<li
 								onClick={() => onClickSort(item)}
-								key={item}
+								key={item.sort}
 								className={value.sort === item.sort ? 'active' : ''}
 							>
 								{item.name}

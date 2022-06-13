@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import logoSvg from '../assets/img/pizza-logo.svg';
+import Search from './Search/Search';
 
-function Header() {
+function Header({searchValue, setSearchValue}) {
 	return (
 		<div>
 			<div className='header'>
@@ -15,9 +16,15 @@ function Header() {
 							</div>
 						</div>
 					</Link>
+
+					<Search
+						searchValue={searchValue}
+						setSearchValue={setSearchValue}
+					/>
+
 					<div className='header__cart'>
 						<Link to='/cart' className='button button--cart'>
-							<span style={{width: '43px'}}>520 ₽</span>
+							<span style={{ width: '43px' }}>520 ₽</span>
 							<div className='button__delimiter'></div>
 							<svg
 								width='18'
