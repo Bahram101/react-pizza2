@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import Sort from '../components/Sort';
@@ -10,8 +9,7 @@ import Pagination from '../components/Pagination';
 const Home = ({ searchValue }) => {
 	const [items, setItems] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const [currentPage, setCurrentPage] = useState(0);
-
+	const [currentPage, setCurrentPage] = useState(1);
 
 	const [categoryId, setCategoryId] = useState(0);
 	const [sortType, setSortType] = useState({
@@ -28,7 +26,7 @@ const Home = ({ searchValue }) => {
 		const search = searchValue ? `&search=${searchValue}` : '';
 
 		fetch(
-			`https://629dc2ffc6ef9335c0a5514c.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}&page=${currentPage}`
+			`https://629dc2ffc6ef9335c0a5514c.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}&page=${currentPage}&limit=4`
 		)
 			.then((res) => res.json())
 			.then((json) => {
@@ -64,7 +62,7 @@ const Home = ({ searchValue }) => {
 			<div className='content__items'>
 				{isLoading ? skeletons : pizzas}
 			</div>
-			<Pagination onChangePage={(number)=>setCurrentPage(number)}/>
+			<Pagination onChangePage={(number) => setCurrentPage(number)} />
 		</div>
 	);
 };
