@@ -11,8 +11,6 @@ export const SearchContext = createContext();
 
 function App() {
 	const [searchValue, setSearchValue] = useState('');
-
-	
  
 
 	return (
